@@ -36,3 +36,20 @@ describe("canIWinBingo() returns true", () => {
     expect(result).toBe(true);
   });
 });
+
+describe("canIWinBingo() returns false", () => {
+  test("when a card has no winning row or column", () => {
+    // Called numbers do not include 100 or 44
+    losingBingoCard = [
+      [5, 1, 25, 100, 44],
+      [5, 1, 25, 100, 44],
+      [5, 1, 25, 100, 44],
+      [5, 1, 25, 100, 44],
+      [44, 100, 44, 100, 44],
+    ];
+
+    let result = canIWinBingo(losingBingoCard, numbersCalled);
+
+    expect(result).toBe(false);
+  });
+});
