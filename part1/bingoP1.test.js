@@ -6,13 +6,29 @@ numbersCalled = [
 ];
 
 describe("canIWinBingo() returns true", () => {
-  test("when a card has 5 winning numbers in a row", () => {
+  test("when a card has a winning row", () => {
+    // winning row [0]
     winningBingoCard = [
-      [7, 4, 9, 5, 11], // winning row
+      [7, 4, 9, 5, 11], 
       [17, 16, 13, 100, 44],
       [23, 18, 20, 100, 44],
       [0, 1, 25, 100, 44],
       [88, 1, 25, 100, 44],
+    ];
+
+    let result = canIWinBingo(winningBingoCard, numbersCalled);
+
+    expect(result).toBe(true);
+  });
+
+  test("when a card has a winning column", () => {
+    // winning column [0]
+    winningBingoCard = [
+      [7, 4, 9, 5, 44], 
+      [4, 16, 13, 100, 44],
+      [9, 18, 20, 100, 44],
+      [5, 1, 25, 100, 44],
+      [11, 1, 25, 100, 44],
     ];
 
     let result = canIWinBingo(winningBingoCard, numbersCalled);
