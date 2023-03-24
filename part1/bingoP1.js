@@ -3,6 +3,11 @@ const canIWinBingo = (bingoCard, numbersCalled) => {
     let rowLength = 5;
     let columnLength = 5;
 
+    // Check if not a valid bingo card
+    if(bingoCard.length !== rowLength) {
+        return false;
+    }
+
     // Check each row
     for(let i=0; i<rowLength; i++) {
         let numberMatch = bingoCard[i].filter(number => numbersCalled.includes(number));
@@ -25,6 +30,7 @@ const canIWinBingo = (bingoCard, numbersCalled) => {
         }
     }
 
+    // Return false if card can not win
     return false;
 }
 

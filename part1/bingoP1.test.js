@@ -52,4 +52,28 @@ describe("canIWinBingo() returns false", () => {
 
     expect(result).toBe(false);
   });
+
+  test("when an empty numbersCalled array is passed in", () => {
+    let bingoCard = [
+      [7, 4, 9, 5, 44], 
+      [4, 16, 13, 100, 44],
+      [9, 18, 20, 100, 44],
+      [5, 1, 25, 100, 44],
+      [11, 1, 25, 100, 44],
+    ];
+    let emptyNumbersCalled = [];
+
+    let result = canIWinBingo(bingoCard, emptyNumbersCalled);
+
+    expect(result).toBe(false);
+  })
+
+  test("when an empty bingoCard is passed in", () => {
+    let bingoCard = [];
+
+    let result = canIWinBingo(bingoCard, numbersCalled);
+
+    expect(result).toBe(false);
+  })
+
 });
