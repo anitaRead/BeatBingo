@@ -58,3 +58,17 @@ describe("getWinningCard() returns the winning bingo card", () => {
   });
 
 });
+
+describe("getWinningCard() returns false", () => {
+
+  test("when three losing cards are passed in", () => {
+
+    const bingoCards = [losingCard, losingCard, losingCard];
+  
+    let result = getWinningCard(bingoCards, numbersCalled);
+  
+    expect(result).toBe(false);
+
+  });
+
+});

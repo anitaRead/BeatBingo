@@ -29,9 +29,9 @@ const getWinningCard = (bingoCards, numbersCalled) => {
             }
 
         }
-
-
     }
+
+    return false;
 
 
 }
