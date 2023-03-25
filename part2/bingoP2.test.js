@@ -15,25 +15,45 @@ const losingCard = [
   [44, 33, 77, 82, 99],
 ];
 
-// winning card
+// Winning card with five numbers in a row
 
-const winningCard = [
+const winningCardRow = [
   [2, 23, 15, 5, 12],
-  [18, 16, 3, 11, 17],
-  [20, 10, 1, 8, 25],
-  [7, 0, 14, 9, 22],
-  [21, 24, 19, 13, 4],
+  [23, 16, 3, 11, 44],
+  [15, 10, 1, 8, 44],
+  [5, 0, 14, 9, 44],
+  [100, 88, 66, 72, 44],
+]
+
+// Winning card with five numbers in a column
+
+const winningCardColumn = [
+  [2, 39, 77, 66, 44],
+  [18, 16, 3, 11, 75],
+  [20, 10, 1, 8, 64],
+  [7, 0, 14, 9, 90],
+  [21, 24, 19, 13, 37],
 ]
 
 describe("getWinningCard() returns the winning bingo card", () => {
 
   test("when two losing cards and one winning card are passed in", () => {
 
-    const bingoCards = [losingCard, losingCard, winningCard];
+    const bingoCards = [losingCard, losingCard, winningCardRow];
   
     let result = getWinningCard(bingoCards, numbersCalled);
   
-    expect(result).toBe(winningCard);
+    expect(result).toBe(winningCardRow);
+
+  });
+
+  test("when two losing cards and one winning card are passed in", () => {
+
+    const bingoCards = [losingCard, losingCard, winningCardColumn];
+  
+    let result = getWinningCard(bingoCards, numbersCalled);
+  
+    expect(result).toBe(winningCardColumn);
 
   });
 
