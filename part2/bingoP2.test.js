@@ -23,7 +23,7 @@ const winningCardRow = [
   [15, 10, 1, 8, 44],
   [5, 0, 14, 9, 44],
   [100, 88, 66, 72, 44],
-]
+];
 
 // Winning card with five numbers in a column
 
@@ -33,42 +33,32 @@ const winningCardColumn = [
   [20, 10, 1, 8, 64],
   [7, 0, 14, 9, 90],
   [21, 24, 19, 13, 37],
-]
+];
 
 describe("getWinningCard() returns the winning bingo card", () => {
-
   test("when two losing cards and one winning card are passed in", () => {
-
     const bingoCards = [losingCard, losingCard, winningCardRow];
-  
-    let result = getWinningCard(bingoCards, numbersCalled);
-  
-    expect(result).toBe(winningCardRow);
 
+    let result = getWinningCard(bingoCards, numbersCalled);
+
+    expect(result).toBe(winningCardRow);
   });
 
   test("when two losing cards and one winning card are passed in", () => {
-
     const bingoCards = [losingCard, losingCard, winningCardColumn];
-  
+
     let result = getWinningCard(bingoCards, numbersCalled);
-  
+
     expect(result).toBe(winningCardColumn);
-
   });
-
 });
 
 describe("getWinningCard() returns false", () => {
-
   test("when three losing cards are passed in", () => {
-
     const bingoCards = [losingCard, losingCard, losingCard];
-  
+
     let result = getWinningCard(bingoCards, numbersCalled);
-  
+
     expect(result).toBe(false);
-
   });
-
 });

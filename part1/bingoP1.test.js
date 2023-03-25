@@ -9,7 +9,7 @@ describe("canIWinBingo() returns true", () => {
   test("when a card has a winning row", () => {
     // winning row [0]
     let winningBingoCard = [
-      [7, 4, 9, 5, 11], 
+      [7, 4, 9, 5, 11],
       [17, 16, 13, 100, 44],
       [23, 18, 20, 100, 44],
       [0, 1, 25, 100, 44],
@@ -24,7 +24,7 @@ describe("canIWinBingo() returns true", () => {
   test("when a card has a winning column", () => {
     // winning column [0]
     let winningBingoCard = [
-      [7, 4, 9, 5, 44], 
+      [7, 4, 9, 5, 44],
       [4, 16, 13, 100, 44],
       [9, 18, 20, 100, 44],
       [5, 1, 25, 100, 44],
@@ -55,7 +55,7 @@ describe("canIWinBingo() returns false", () => {
 
   test("when an empty numbersCalled array is passed in", () => {
     let bingoCard = [
-      [7, 4, 9, 5, 44], 
+      [7, 4, 9, 5, 44],
       [4, 16, 13, 100, 44],
       [9, 18, 20, 100, 44],
       [5, 1, 25, 100, 44],
@@ -66,7 +66,7 @@ describe("canIWinBingo() returns false", () => {
     let result = canIWinBingo(bingoCard, emptyNumbersCalled);
 
     expect(result).toBe(false);
-  })
+  });
 
   test("when an empty bingoCard is passed in", () => {
     let emptyBingoCard = [];
@@ -74,11 +74,10 @@ describe("canIWinBingo() returns false", () => {
     let result = canIWinBingo(emptyBingoCard, numbersCalled);
 
     expect(result).toBe(false);
-  })
+  });
 
   test("when an empty bingoCard and numbersCalled array are passed in", () => {
     let result = canIWinBingo([], []);
     expect(result).toBe(false);
-  })
-
+  });
 });
