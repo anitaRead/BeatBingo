@@ -94,7 +94,7 @@ describe("parseInput()", () => {
 });
 
 describe("getWinningCard() returns the winning bingo card", () => {
-  test("when two losing cards and one winning card are passed in", () => {
+  test("when two losing cards and one winning card (5 in a row) are passed in", () => {
     const bingoCards = [losingCard, losingCard, winningCardRow];
 
     let result = getWinningCard(bingoCards, numbersCalled);
@@ -102,12 +102,22 @@ describe("getWinningCard() returns the winning bingo card", () => {
     expect(result).toBe(winningCardRow);
   });
 
-  test("when two losing cards and one winning card are passed in", () => {
+  test("when two losing cards and one winning card (5 in a column) are passed in", () => {
     const bingoCards = [losingCard, losingCard, winningCardColumn];
 
     let result = getWinningCard(bingoCards, numbersCalled);
 
     expect(result).toBe(winningCardColumn);
+  });
+
+  test("when three winning cards are passed in it will return the first one", () => {
+    const bingoCards = [winningCardRow, winningCardColumn, winningCardRow];
+
+    let result = getWinningCard(bingoCards, numbersCalled);
+
+    expect(result).toBe(winningCardRow);
+    expect(result.length).toBe(5);
+    expect(result).not.toContain(winningCardColumn);
   });
 });
 

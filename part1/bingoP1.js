@@ -75,7 +75,7 @@ const canIWinBingo = (bingoCard, numbersCalled) => {
 
 
 const input = fs.readFileSync("part1/input.txt", "utf8");
-const { numbersCalled, bingoCard } = parseInput(input);
+const { bingoCard, numbersCalled } = parseInput(input);
 let canWin = canIWinBingo(bingoCard, numbersCalled);
 
 if (canWin) {
