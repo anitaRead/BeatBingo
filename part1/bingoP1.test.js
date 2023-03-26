@@ -1,9 +1,34 @@
-const canIWinBingo = require("./bingoP1");
+const { canIWinBingo, parseInput } = require("./bingoP1");
 
 const numbersCalled = [
   7, 4, 9, 5, 11, 17, 23, 2, 0, 14, 21, 24, 10, 16, 13, 6, 15, 25, 12, 22, 18,
   20, 8, 19, 3, 26, 1,
 ];
+
+describe("parseInput()", () => {
+  test("returns correct numbersCalled and bingoCard arrays", () => {
+    const input =
+      "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1\n\n22 13 17 11 0\n 8  2 23  4 24\n21  9 14 16  7\n 6 10  3 18  5\n 1 12 20 15 19\n";
+
+    const expectedOutput = {
+      bingoCard: [
+        [22, 13, 17, 11, 0],
+        [8, 2, 23, 4, 24],
+        [21, 9, 14, 16, 7],
+        [6, 10, 3, 18, 5],
+        [1, 12, 20, 15, 19],
+      ],
+      calledNumbers: [
+        7, 4, 9, 5, 11, 17, 23, 2, 0, 14, 21, 24, 10, 16, 13, 6, 15, 25, 12, 22,
+        18, 20, 8, 19, 3, 26, 1,
+      ],
+    };
+
+    let result = parseInput(input);
+
+    expect(result).toEqual(expectedOutput);
+  });
+});
 
 describe("canIWinBingo() returns true", () => {
   test("when a card has a winning row", () => {
