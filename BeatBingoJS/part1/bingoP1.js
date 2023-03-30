@@ -14,7 +14,7 @@ const fs = require("fs");
 
 const parseInput = (data) => {
   const rows = data.trim().split("\n");
-  const separationLine = rows.findIndex((row) => row.trim() === "");
+  const separationLine = rows.findIndex((row) => row === "");
 
   // Numbers called array
   const numbersCalled = rows[0]
@@ -38,8 +38,8 @@ const canIWinBingo = (bingoCard, numbersCalled) => {
   let rowLength = 5;
   let columnLength = 5;
 
-  // Check if not a valid bingo card
-  if (bingoCard.length !== rowLength) {
+  // Check for invalid bingo card or numbers called array
+  if (bingoCard.length !== rowLength || numbersCalled.length < 1) {
     return false;
   }
 
@@ -55,10 +55,10 @@ const canIWinBingo = (bingoCard, numbersCalled) => {
   }
 
   // Check each column
-  for (let i = 0; i < rowLength; i++) {
+  for (let i = 0; i < columnLength; i++) {
     let matchingNumbers = [];
 
-    for (let j = 0; j < columnLength; j++) {
+    for (let j = 0; j < rowLength; j++) {
       if (numbersCalled.includes(bingoCard[j][i])) {
         matchingNumbers.push(bingoCard[j][i]);
       }
@@ -72,7 +72,6 @@ const canIWinBingo = (bingoCard, numbersCalled) => {
   // Return false if card can not win
   return false;
 };
-
 
 const input = fs.readFileSync("part1/input.txt", "utf8");
 const { bingoCard, numbersCalled } = parseInput(input);
